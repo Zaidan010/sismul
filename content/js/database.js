@@ -10,6 +10,12 @@ const DATABASE = {
       id: 2,
       title: "Gambar 2",
       img: "../content/images/gambar2.png"
+    },
+
+    {
+      id: 3,
+      title: "Gambar 3",
+      img: "../content/images/gambar3.svg"
     }
   ]
 };

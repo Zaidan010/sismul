@@ -6,7 +6,15 @@
 
   <title>Kitty Drawing</title>
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+      font-family: 'Josefin Sans', sans-serif;
+    }
+  </style>
 </head>
 
 <body class="bg-[#f5f0e8] min-h-screen">
@@ -16,18 +24,16 @@
     <!-- Header -->
     <div class="flex items-center mb-10">
 
-      <div class="w-24 h-24  rounded-xl flex items-center justify-center" >
-        <img src="../content/material/kity_drawing.png" alt="logo">
+      <div class="w-40 h-40 rounded-xl flex items-center justify-center text-white" >
+        <img src="../content/material/kity_drawing.png" alt="logo" class="w-full h-full object-contain">
       </div>
 
       <div >
-        <h1 class="text-4xl font-bold pb-2">
-          Kitty Drawing
+        <h1 class="text-3xl font-bold text-gray-800 text-center">
+          Kitty<br>Drawing
         </h1>
 
-        <p class="text-gray-500">
-          Pilih halaman mewarnai favoritmu
-        </p>
+        
       </div>
 
       <div class="ml-auto">
@@ -58,21 +64,16 @@
     </div>
 
     <!-- Video Frame -->
-    <div class="bg-white rounded-3xl shadow-lg overflow-hidden mb-10 pt-3">
+    
 
       <!-- Video -->
-      <div class="bg-white max-w-xl aspect-video mx-auto">
-        <video
-          class="w-full h-full object-cover"
-          autoplay
-          muted
-          loop
-          controls
-        >
-          <source src="videos/intro.mp4" type="video/mp4">
-
-          Browser kamu tidak mendukung video.
-        </video>
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
+        <iframe 
+          src="https://www.youtube.com/embed/9AVujlNBFbs" 
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
       </div>
 
       <!-- Caption -->

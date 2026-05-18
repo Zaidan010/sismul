@@ -294,6 +294,7 @@ const canvas = document.getElementById("canvas");
     }
 
     const stack = [[startX, startY]];
+    const visited = new Uint8Array(width * height);
 
     while(stack.length){
 
@@ -342,13 +343,13 @@ const canvas = document.getElementById("canvas");
     ctx.putImageData(imageData, 0, 0);
   }
 
-  function matchColor(a, b){
+  function matchColor(a, b, tolerance = 35){
 
     return (
-      a.r === b.r &&
-      a.g === b.g &&
-      a.b === b.b &&
-      a.a === b.a
+      Math.abs(a.r - b.r) <= tolerance &&
+      Math.abs(a.g - b.g) <= tolerance &&
+      Math.abs(a.b - b.b) <= tolerance &&
+      Math.abs(a.a - b.a) <= tolerance
     );
   }
 
