@@ -16,6 +16,30 @@ const DATABASE = {
       id: 3,
       title: "Gambar 3",
       img: "../content/images/gambar3.svg"
-    }
+    },
+
+    {
+      id: 4,
+      title: "Gambar 4",
+      img: "../content/images/gambar4.svg"
+    },
+
+    {
+      id: 5,
+      title: "Gambar 5",
+      img: "../content/images/gambar5.svg"
+    },
+
+    {
+      id: 6,
+      title: "Gambar 6",
+      img: "../content/images/gambar6.svg"
+    },
+
+    {
+      id: 7,
+      title: "Gambar 7",
+      img: "../content/images/gambar7.svg"
+    },
   ]
 };
