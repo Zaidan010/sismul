@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kitty Drawing</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    canvas {
+      border: 2px solid #d1d5db;
+      background: white;
+      cursor: crosshair;
+    }
+
+    .color-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 2px solid white;
+      transition: 0.2s;
+    }
+
+    .color-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .active-color {
+      border: 2px solid black;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body class="bg-[#f5f0e8] min-h-screen flex items-center justify-center p-5">
+
+  <div class="bg-[#eae4da] shadow-xl rounded-2xl p-6 w-full max-w-6xl">
+
+    <!-- Header -->
+    <div class="flex items-center  mb-6">
+      <div class="w-24 h-24 rounded-xl flex items-center justify-center text-white">
+        <img src="../content/material/kity_drawing.png" alt="logo">
+      </div>
+
+      <div>
+        <h1 class="text-3xl font-bold text-gray-800">Kitty Drawing</h1>
+        <p class="text-gray-500">Website Mewarnai Sederhana</p>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
+
+      <!-- Sidebar -->
+      <div class="bg-white rounded-2xl p-4 shadow">
+
+        <h2 class="font-bold text-lg mb-3">🎨 Pilihan Warna</h2>
+
+        <div id="colors" class="grid grid-cols-4 gap-3 mb-6">
+        </div>
+
+        <div class="mb-5">
+          <label class="font-semibold block mb-2">Ukuran Brush</label>
+
+          <input
+            type="range"
+            id="brushSize"
+            min="5"
+            max="50"
+            value="20"
+            class="w-full"
+          />
+        </div>
+
+        <div>
+          <label class="font-semibold block mb-2">
+            Upload Gambar
+          </label>
+
+          <input
+            type="file"
+            id="uploadImage"
+            accept="image/*"
+            class="w-full text-sm"
+          />
+
+          <!-- Error Message -->
+          <p
+            id="uploadWarning"
+            class="text-red-500 text-sm mt-2 hidden"
+          >
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Canvas Area -->
+      <div class="md:col-span-3 flex flex-col items-center">
+
+        <a
+          href="index.html"
+          class="inline-block mb-4 bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-xl font-semibold"
+        >
+          ← Kembali
+        </a>
+
+        <canvas id="canvas" width="800" height="500" class="rounded-xl"></canvas>
+
+        <!-- Buttons -->
+        <div class="flex flex-wrap justify-center gap-4 mt-5">
+
+          <button
+            id="undoBtn"
+            class="bg-yellow-400 hover:bg-yellow-500 px-5 py-2 rounded-xl font-semibold shadow"
+          >
+            ↩ Undo
+          </button>
+
+          <button
+            id="redoBtn"
+            class="bg-sky-300 hover:bg-sky-400 px-5 py-2 rounded-xl font-semibold shadow"
+          >
+            ↪ Redo
+          </button>
+
+          <button
+            id="clearBtn"
+            class="bg-red-300 hover:bg-red-400 px-5 py-2 rounded-xl font-semibold shadow"
+          >
+            🗑 Delete
+          </button>
+
+          <button
+            id="downloadBtn"
+            class="bg-green-400 hover:bg-green-500 px-5 py-2 rounded-xl font-semibold shadow"
+          >
+            ⬇ Download
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<script src="js/warna.js">
+</script>
+
+</body>
+</html>
+

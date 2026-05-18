@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kitty Drawing</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#f5f0e8] min-h-screen">
+
+  <div class="max-w-6xl mx-auto p-6">
+
+    <!-- Header -->
+    <div class="flex items-center mb-10">
+
+      <div class="w-24 h-24  rounded-xl flex items-center justify-center" >
+        <img src="../content/material/kity_drawing.png" alt="logo">
+      </div>
+
+      <div >
+        <h1 class="text-4xl font-bold pb-2">
+          Kitty Drawing
+        </h1>
+
+        <p class="text-gray-500">
+          Pilih halaman mewarnai favoritmu
+        </p>
+      </div>
+
+      <div class="ml-auto">
+
+        <label
+          class="bg-pink-500 hover:bg-pink-600 text-white px-5 py-3 rounded-xl cursor-pointer shadow font-semibold inline-block"
+        >
+          📤 Upload Gambar
+
+          <input
+            type="file"
+            id="headerUpload"
+            accept="image/png,image/jpeg,image/jpg,image/svg+xml"
+            class="hidden"
+          >
+        </label>
+
+      </div>
+
+    </div>
+
+    <!-- Description -->
+    <div class="max-w-3xl mb-10 mx-auto">
+
+      <p class="text-gray-700 leading-relaxed text-start">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur delectus cum excepturi, labore fuga blanditiis dolorum deleniti, unde doloribus accusantium recusandae, minima cumque. Ipsum, dicta.
+      </p>
+    </div>
+
+    <!-- Video Frame -->
+    <div class="bg-white rounded-3xl shadow-lg overflow-hidden mb-10 pt-3">
+
+      <!-- Video -->
+      <div class="bg-white max-w-xl aspect-video mx-auto">
+        <video
+          class="w-full h-full object-cover"
+          autoplay
+          muted
+          loop
+          controls
+        >
+          <source src="videos/intro.mp4" type="video/mp4">
+
+          Browser kamu tidak mendukung video.
+        </video>
+      </div>
+
+      <!-- Caption -->
+      <div class="p-5 text-center">
+
+        <h2 class="text-2xl font-bold mb-2 text-gray-800">
+          🎨 Selamat Datang di Kitty Drawing
+        </h2>
+
+        <p class="text-gray-600 leading-relaxed">
+          Pilih gambar favoritmu dan mulai mewarnai dengan berbagai warna menarik.
+        </p>
+
+      </div>
+    </div>
+
+    <!-- GRID -->
+    <div
+      id="gallery"
+      class="flex flex-wrap justify-center gap-6"
+    >
+    </div>
+
+  </div>
+
+ 
+    </div>
+
+  </div>
+ <script src="js/database.js">
+  </script>
+ <script src="js/script.js">
+  </script>
+</body>
+</html>
