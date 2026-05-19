@@ -10,17 +10,21 @@
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     * {
       font-family: 'Josefin Sans', sans-serif;
     }
-  </style>
 
-  <style>
     canvas {
       border: 2px solid #d1d5db;
       background: white;
       cursor: crosshair;
+
+      /* Responsive */
+      width: 100%;
+      max-width: 800px;
+      height: auto;
     }
 
     .color-btn {
@@ -43,34 +47,54 @@
   </style>
 </head>
 
-<body class="bg-[#f5f0e8] min-h-screen flex items-center justify-center p-5">
+<body class="bg-[#f5f0e8] min-h-screen flex items-center justify-center p-3 sm:p-5">
 
-  <div class="bg-[#eae4da] shadow-xl rounded-2xl p-6 w-full max-w-6xl">
+  <div class="bg-[#eae4da] shadow-xl rounded-2xl p-4 sm:p-6 w-full max-w-7xl">
 
     <!-- Header -->
-    <div class="flex items-center  mb-6">
-      <div class="w-40 h-40 rounded-xl flex items-center justify-center text-white">
-        <img src="../content/material/kity_drawing.png" alt="logo" class="w-full h-full object-contain">
+    <div class="flex flex-col sm:flex-row items-center gap-4 mb-6">
+
+      <!-- Logo -->
+      <div class="w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 flex items-center justify-center">
+        <img 
+          src="../content/material/kity_drawing.png" 
+          alt="logo" 
+          class="w-full h-full object-contain"
+        >
       </div>
 
-      <div>
-        <h1 class="text-3xl font-bold text-gray-800 text-center">Kitty<br> Drawing</h1>
+      <!-- Title -->
+      <div class="text-center sm:text-left">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
+          Kitty <br> Drawing
+        </h1>
       </div>
+
     </div>
 
     <!-- Main Content -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-5">
 
       <!-- Sidebar -->
-      <div class="bg-white rounded-2xl p-4 shadow">
+      <div class="bg-white rounded-2xl p-4 shadow order-2 lg:order-1">
 
-        <h2 class="font-bold text-lg mb-3">🎨 Pilihan Warna</h2>
+        <h2 class="font-bold text-lg mb-3 text-center lg:text-left">
+          🎨 Pilihan Warna
+        </h2>
 
-        <div id="colors" class="grid grid-cols-4 gap-2 max-h-72 overflow-y-auto pr-1">
+        <!-- Color List -->
+        <div 
+          id="colors" 
+          class="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-4 gap-2 max-h-72 overflow-y-auto pr-1 p-2"
+        >
         </div>
 
-        <div class="mb-5">
-          <label class="font-semibold block mb-2">Ukuran Brush</label>
+        <!-- Brush -->
+        <div class="mb-4 mt-4">
+
+          <label class="font-semibold block mb-2">
+            Ukuran Brush
+          </label>
 
           <input
             type="range"
@@ -80,9 +104,12 @@
             value="20"
             class="w-full"
           />
+
         </div>
 
+        <!-- Upload -->
         <div>
+
           <label class="font-semibold block mb-2">
             Upload Gambar
           </label>
@@ -100,66 +127,77 @@
             class="text-red-500 text-sm mt-2 hidden"
           >
           </p>
+
         </div>
 
       </div>
 
       <!-- Canvas Area -->
-      <div class="md:col-span-3 flex flex-col items-center">
+      <div class="lg:col-span-3 flex flex-col items-center order-1 lg:order-2">
 
+        <!-- Back Button -->
         <a
           href="index.html"
-          class="inline-block mb-4 bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-xl font-semibold"
+          class="inline-block mb-4 bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded-xl font-semibold text-sm sm:text-base"
         >
           ← Kembali
         </a>
 
-        <canvas id="canvas" width="800" height="500" class="rounded-xl"></canvas>
+        <!-- Canvas Wrapper -->
+        <div class="w-full overflow-x-auto flex justify-center">
+          <canvas 
+            id="canvas" 
+            width="800" 
+            height="500" 
+            class="rounded-xl"
+          >
+          </canvas>
+        </div>
 
         <!-- Buttons -->
-        <div class="flex flex-wrap justify-center gap-4 mt-5">
+        <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mt-5 w-full">
 
           <button
             id="undoBtn"
-            class="flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 px-5 py-2 rounded-xl font-semibold shadow"
+            class="flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 px-4 sm:px-5 py-2 rounded-xl font-semibold shadow text-sm sm:text-base"
           >
-          <img src="../content/images/icons/undo.png" alt="Undo" class="w-6 h-6">
-             Undo
+            <img src="../content/images/icons/undo.png" alt="Undo" class="w-5 h-5 sm:w-6 sm:h-6">
+            Undo
           </button>
 
           <button
             id="redoBtn"
-            class="flex items-center gap-2 bg-sky-300 hover:bg-sky-400 px-5 py-2 rounded-xl font-semibold shadow"
+            class="flex items-center gap-2 bg-sky-300 hover:bg-sky-400 px-4 sm:px-5 py-2 rounded-xl font-semibold shadow text-sm sm:text-base"
           >
-          <img src="../content/images/icons/redo.png" alt="Redo" class="w-6 h-6">
-             Redo
+            <img src="../content/images/icons/redo.png" alt="Redo" class="w-5 h-5 sm:w-6 sm:h-6">
+            Redo
           </button>
 
           <button
             id="clearBtn"
-            class="flex items-center gap-2 bg-red-300 hover:bg-red-400 px-5 py-2 rounded-xl font-semibold shadow"
+            class="flex items-center gap-2 bg-red-300 hover:bg-red-400 px-4 sm:px-5 py-2 rounded-xl font-semibold shadow text-sm sm:text-base"
           >
-          <img src="../content/images/icons/Delete.png" alt="Delete" class="w-6 h-6">
-             Clear
+            <img src="../content/images/icons/Delete.png" alt="Delete" class="w-5 h-5 sm:w-6 sm:h-6">
+            Clear
           </button>
 
           <button
             id="downloadBtn"
-            class="flex items-center gap-2 bg-green-400 hover:bg-green-500 px-5 py-2 rounded-xl font-semibold shadow"
+            class="flex items-center gap-2 bg-green-400 hover:bg-green-500 px-4 sm:px-5 py-2 rounded-xl font-semibold shadow text-sm sm:text-base"
           >
-          <img src="../content/images/icons/Download.png" alt="Download" class="w-6 h-6">
-             Download
+            <img src="../content/images/icons/Download.png" alt="Download" class="w-5 h-5 sm:w-6 sm:h-6">
+            Download
           </button>
 
         </div>
 
       </div>
+
     </div>
+
   </div>
 
-<script src="js/warna.js">
-</script>
+  <script src="js/warna.js"></script>
 
 </body>
 </html>
-
