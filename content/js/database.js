@@ -3,13 +3,13 @@ const DATABASE = {
     {
       id: 1,
       title: "Gambar 1",
-      img: "../content/images/gambar1.png"
+      img: "../content/images/gambar1.svg"
     },
 
     {
       id: 2,
       title: "Gambar 2",
-      img: "../content/images/gambar2.png"
+      img: "../content/images/gambar2.svg"
     },
 
     {
@@ -41,5 +41,23 @@ const DATABASE = {
       title: "Gambar 7",
       img: "../content/images/gambar7.svg"
     },
+
+    {
+      id: 8,
+      title: "Gambar 8",
+      img: "../content/images/gambar8.svg"
+    },
+
+    {
+      id: 9,
+      title: "Gambar 9",
+      img: "../content/images/gambar9.svg"
+    },
+
+    {
+      id: 10,
+      title: "Gambar 10",
+      img: "../content/images/gambar10.svg"
+    }
   ]
 };
