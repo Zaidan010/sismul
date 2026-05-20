@@ -10,6 +10,12 @@ const canvas = document.getElementById("canvas");
   // MODE
   let currentTool = "brush";
 
+
+  let zoomLevel = 1;
+  const ZOOM_MIN = 0.5;
+  const ZOOM_MAX = 3;
+  const ZOOM_STEP = 0.25;
+
   const history = [];
   let historyStep = -1;
 
@@ -145,6 +151,28 @@ const canvas = document.getElementById("canvas");
     });
 
     colorContainer.appendChild(btn);
+  });
+
+
+  const customPickerWrapper = document.createElement("div");
+  customPickerWrapper.className = "flex items-center gap-2 mt-3";
+  customPickerWrapper.innerHTML = `
+    <label class="text-sm font-medium text-gray-600">Warna Kustom</label>
+    <input 
+      type="color" 
+      id="customColorPicker" 
+      value="#000000"
+      class="w-10 h-10 rounded-lg cursor-pointer border border-gray-300"
+      title="Pilih warna kustom"
+    >
+    <span id="customColorHex" class="text-sm font-mono text-gray-500">#000000</span>
+  `;
+  colorContainer.parentElement.insertBefore(customPickerWrapper, colorContainer.nextSibling);
+
+  document.getElementById("customColorPicker").addEventListener("input", (e) => {
+    currentColor = e.target.value;
+    document.getElementById("customColorHex").textContent = e.target.value;
+    document.querySelectorAll(".color-btn").forEach(el => el.classList.remove("active-color"));
   });
 
   // =========================
